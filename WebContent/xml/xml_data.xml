@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<cafelist>
+	<user>
+		<name>철수</name>
+		<clubid>qwer1234</clubid>
+	</user>
+	<user>
+		<name>영희</name>
+		<clubid>asdf1234</clubid>
+	</user>
+	<user>
+		<name>바둑이</name>
+		<clubid>zxcv1234</clubid>
+	</user>
+</cafelist>

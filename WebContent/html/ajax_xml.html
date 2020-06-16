@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get</title>
+
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script>
+        $(function() {
+            $('#btn').click(function() {
+                $.ajax({//밑에 url=뒤에만 바꿔주면 되지롱..!
+                    url : 'xml_data.xml',
+                    type : 'GET',
+                    dataType : 'xml', //제이슨을 받아와서
+
+                    error : function() {
+                        alert("Error");
+                    },
+
+                    success: function(xml) {
+                    	$(xml).find("user").each(function() {
+                        	let name = $(this).find("name").text();
+                        	let clubid = $(this).find("clubid").text();
+                        	var info = name + "," + clubid + "<br/>";
+                            $('#sel').append(info);
+                    	})
+                    }
+                })
+            })
+
+
+        })
+
+    </script>
+
+    <style>
+        #btn {
+            background-color: cornflowerblue;
+            color: rgb(255, 185, 255);
+            font-weight: bold;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="btn">GET DATA</button>
+    <div id="sel"></div>
+    
+</body>
+</html>
