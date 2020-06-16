@@ -21,14 +21,12 @@
 
 
 <!-- 검색창 시작 -->
-<div class="btn-group btn-group-lg" role="group"
-	aria-label="Button group with nested dropdown">
-	<button id="btnGroupDrop1" type="button"
-		class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false">1</button>
-	<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-		<a class="dropdown-item" href="#">1-1</a> <a class="dropdown-item"
-			href="#">1-2</a>
-	</div>
+<div class="container" style="background-color: #e3f2fd;">
+<div class="col-lg-8">
+<form class="form-inline">
+    <input class="form-control mr-lg-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+  </form>
+</div>
 </div>
 <!-- 검색창 끝 -->
