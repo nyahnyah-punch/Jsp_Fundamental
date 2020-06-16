@@ -19,14 +19,17 @@
 	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	crossorigin="anonymous"></script>
 
-
-<!-- 검색창 시작 -->
-<div class="container" style="background-color: #e3f2fd;">
-<div class="col-lg-8">
-<form class="form-inline">
-    <input class="form-control mr-lg-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-  </form>
+<div class="container" style="padding: 0px;">
+	<!-- 검색창 시작 -->
+	<div class="col-lg-12">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<form class="form-inline">
+				<input class="form-control mr-lg-2" type="search"
+					placeholder="Search" aria-label="Search" style="width: 80%;">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin: 10px">검색</button>
+			</form>
+		</nav>
+	</div>
+	<!-- 검색창 끝 -->
+	
 </div>
-</div>
-<!-- 검색창 끝 -->
