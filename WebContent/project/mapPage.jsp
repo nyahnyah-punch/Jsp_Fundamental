@@ -1,5 +1,11 @@
+<!-- mapPage.jsp -->
+
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/project/projectHeader.jsp"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	String name = request.getParameter("name");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +60,7 @@
         <div class="option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
+                    키워드 : <input type="text" value="<%=name %>" id="keyword"  size="15"> 
                     <button type="submit">검색하기</button> 
                 </form>
             </div>
@@ -294,6 +300,13 @@ $("#search").click(function(e){
 	
 	searchPlaces();
 });
+
+function callMap(){
+	$("#keyword").val(<%=name%>);
+	searchPlaces();
+}
+
+callMap();
 
  </script>
 

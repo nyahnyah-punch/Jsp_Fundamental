@@ -1,3 +1,5 @@
+<!-- projectSearch.jsp -->
+
 <%@page import="kr.or.kpc.dto.NoticeDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="kr.or.kpc.dao.NoticeDao"%>
@@ -35,12 +37,13 @@
                   placeholder="응급실명을 입력해주세요." />
             </div>
             <div class="form-group col-sm-2">
-               <a href="#" id="search" class="btn btn-outline-primary">
+             <a href="#" id="search" class="btn btn-outline-primary">
                   <i class="fa fa-search" aria-hidden="true"></i> 검색 </a>
             </div>
          </div>
       </div>
    </div>
+   
 
                     
 <!-- 차트 공간 시작 -->
@@ -108,7 +111,7 @@
                                      var dutyTel3 =  $(this).find("dutyTel3").text(); 
                                      var findStr = $("#address").val() ;
                                      if(dutyName.indexOf(findStr) != -1){
-                                         message += "<td>"+dutyName+"</td>";
+                                         message += "<td><a href='mapPage.jsp?name="+dutyName+"'>"+dutyName+"</a></td>";
                                          message += "<td>"+hvec+"</td>";
                                          message += "<td>"+hvgc+"</td>";
                                          message += "<td>"+hvamyn+"</td>";
@@ -164,4 +167,3 @@
                            
                         }
                     </script>
-                    
