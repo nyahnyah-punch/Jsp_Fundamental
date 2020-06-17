@@ -6,9 +6,12 @@
 <%@ include file="../inc/header.jsp"%>
 
 <% 
+	int displayCount = 3;
+	int displayPageCount = 5;
 	String tempPage = request.getParameter("page");
 	int cPage = 0;
-	if(tempPage == null || tempPage.length()==0) {
+	
+	if(tempPage == null || tempPage.length()==0){
 		cPage = 1;
 	}
 	
@@ -25,8 +28,8 @@
 	An = a1 + (n+1)*d 등차수열!
 	*/
 	NoticeDao dao = NoticeDao.getInstance();
-	int start = (cPage-1)*10; //현재 페이지에 따라 달라짐
-	ArrayList<NoticeDto> list = dao.select(start,10);
+	int start = (cPage-1)*displayCount; //현재 페이지에 따라 달라짐
+	ArrayList<NoticeDto> list = dao.select(start,displayCount);
 %>
 
 <nav aria-label="breadcrumb ">
@@ -61,7 +64,7 @@
 				    <tr>
 				      <th scope="row"><%=dto.getNum() %></th>
 				      <td><%=dto.getWriter() %></td>
-				      <td><a href="view.jsp"><%=dto.getTitle() %></a></td>
+				      <td><a href="view.jsp?page=<%=cPage%>&num=<%=dto.getNum()%>"><%=dto.getTitle() %></a></td>
 				      <td><%=dto.getRegdate() %></td>
 				    </tr>
 				    <%}%>
@@ -90,10 +93,10 @@
 					int currentBlock = 0; //현재 블록
 					int totalBlock = 0; //총 블록 - 총 페이지가 몇페인지인지 알아야함 (위에 생성)
 					
-					if(cPage % 10 == 0) {
-						currentBlock = cPage/10; //나눈 몫을 현재 블록
+					if(cPage % displayCount == 0) {
+						currentBlock = cPage/displayCount; //나눈 몫을 현재 블록
 					} else {
-						currentBlock = cPage/10+1; //11페이지면 나머지가 1+1 = 2페이지인거
+						currentBlock = cPage/displayCount+1; //11페이지면 나머지가 1+1 = 2페이지인거
 					}
 					
 					if(totalRows%10==0) {
@@ -102,23 +105,32 @@
 						totalPage = totalRows/10;
 					}
 					
-					if(cPage % 10 ==0) {
-						currentBlock = cPage/10;
-					} else {
-						currentBlock = cPage/10 +1;
+					if(totalRows%displayCount==0){
+						totalPage = totalRows/displayCount;
+					}else{
+						totalPage =  totalRows/displayCount +1;
+					}
+					if(totalPage == 0){
+						totalPage = 1;
 					}
 					
-					if(totalPage%10==0) {
-						totalBlock = totalPage/10;
-					} else {
-						totalBlock = totalPage/10+1;
+					if(cPage % displayPageCount == 0){
+						currentBlock = cPage/displayPageCount;
+					}else{
+						currentBlock = cPage/displayPageCount +1;
 					}
 					
-					int startPage = 1+(currentBlock-1)*10;
-					int endPage = 10 + (currentBlock-1)*10;
+					if(totalPage%displayPageCount==0){
+						totalBlock = totalPage/displayPageCount;
+					}else{
+						totalBlock = totalPage/displayPageCount +1;
+					}
 					
-					if(currentBlock == totalBlock) { 
-						endPage = totalPage; //마지막페이지는 총 블럭수
+					int startPage = 1+(currentBlock -1) *displayPageCount;
+					int endPage = displayPageCount +(currentBlock -1) *displayPageCount;
+					
+					if(currentBlock == totalBlock){
+						endPage = totalPage;
 					}
 				%>
 				
@@ -152,8 +164,8 @@
 				</nav>
 				
 				<div class="text-right"  style="margin-bottom : 20px;">
-					<a href="write.jsp" class="btn btn-outline-danger">글쓰기</a>
-				</div>
+					<a href="write.jsp?page=<%=cPage%>" class="btn btn-outline-danger">글쓰기</a>
+				</div> <!-- 현재 패이지값도 같이 넘겨서 출력해주기 -->
 	        	
 	        	</div>
 	        </div>

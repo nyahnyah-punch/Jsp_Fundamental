@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>  
+    pageEncoding="UTF-8"%> 
+<%@page import="kr.or.kpc.dto.CustomerDto"%>
+<%@page import="kr.or.kpc.dao.CustomerDao"%> 
 
 <!doctype html>
 <html lang="en">
@@ -17,7 +19,7 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="/js/jquery-3.5.1"></script>
+<script src="/js/jquery-3.5.1.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -52,10 +54,22 @@
 				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 				<li class="nav-item"><a class="nav-link href="/notice/list.jsp">공지사항</a></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+			<div class="form-inline my-2 my-lg-0">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<%
+					CustomerDto customerDto = (CustomerDto)session.getAttribute("login");
+					if(customerDto != null) {
+				%>
+				<li class="nav-item active">
+					<a><strong><%=customerDto.getName()%></strong>님</a>
+					<a class="nav-link" href="/member/login.jsp">로그아웃</a>
+				</li>
+				<% } else { %>
+						<li class="nav-item">
+						<a class="nav-link" href="/member/login.jsp">로그인</a>
+					</li>
+				<%} %>
+			</ul>
+			</div>
 		</div>
 	</nav>

@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/project/projectHeader.jsp"%>
-<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="../jquery-3.5.1.js"></script>
                     
               <div class="container">
    <!-- intro+차트 올 공간 시작 -->

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ include file="searchHeader.jsp"%>
+<%@ include file="/project/projectHeader.jsp"%>
 
 <div class="container">
 	<!-- intro+차트 올 공간 시작 -->
