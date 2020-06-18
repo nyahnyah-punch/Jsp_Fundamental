@@ -28,9 +28,9 @@
    <div class="row" style="margin-top: 65px;">
       <div class="col-sm-12">
          <ul class="nav nav-tabs">
-            <li class="nav-item"><a class="nav-link active" href="projectInfo.jsp" >전국 현황 보기</a>
+            <li class="nav-item"><a class="nav-link active" href="projectInfo.jsp" style="background-color: #F8F8F8; font-weight: bold;">전국 현황 보기</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="resultPage.jsp" style="background-color: #F8F8F8; font-weight: bold;">지역
+            <li class="nav-item"><a class="nav-link" href="resultPage.jsp">지역
                   현황 검색하기</a></li>
          </ul>
       </div>
