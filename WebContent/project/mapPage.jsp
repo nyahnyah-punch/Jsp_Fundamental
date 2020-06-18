@@ -51,7 +51,6 @@
 </head>
 <body>
 
-<div class="container">
 <div class="map_wrap">
     <div id="map" style=position:relative;overflow:hidden;"></div>
 
@@ -69,7 +68,7 @@
         <div id="pagination"></div>
     </div>
 </div>
-</div>
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7d93c975c90699493dd38cd0e48d605d&libraries=services"></script>
 <script>
